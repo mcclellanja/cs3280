@@ -35,6 +35,7 @@ namespace FinalAssignment.ViewModels
         public void NewOrder()
         {
             var newOrderVM = IoC.Get<NewOrderViewModel>();
+            //var newOrderVM = new NewOrderViewModel();
             ActivateItem(newOrderVM);
         }
     }
