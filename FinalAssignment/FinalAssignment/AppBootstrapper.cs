@@ -1,12 +1,14 @@
+
+
 namespace FinalAssignment
 {
 	using System;
 	using System.Collections.Generic;
 	using Caliburn.Micro;
 	using FinalAssignment.ViewModels;
-	using InventoryData;
 	using InventoryDataInteraction;
-	using Common.Interfaces;
+    using InventoryData;
+	using System.Data.Common;
 
 	public class AppBootstrapper : BootstrapperBase
 	{
