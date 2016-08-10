@@ -135,20 +135,6 @@
     <Folder Include="Styles\" />
     <Folder Include="TypeConverters\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="D:\Users\James\Documents\Classes\CS 3280\Final Project\InventoryDataInteraction\InventoryDataInteraction\InventoryDataInteraction.csproj">
-      <Project>{f5bf90ba-a083-41c9-b1a4-f3bf6d66c132}</Project>
-      <Name>InventoryDataInteraction</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\Users\James\Documents\Classes\CS 3280\Final Project\InventoryDataMapping\InventoryDataMapping\InventoryDataMapping.csproj">
-      <Project>{330acf0b-9109-4727-8b10-bff65701cbd6}</Project>
-      <Name>InventoryDataMapping</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\Users\James\Documents\Classes\CS 3280\Final Project\InventoryData\InventoryData\InventoryData.csproj">
-      <Project>{826B2519-74AD-4F7B-AB77-9529FF38A88A}</Project>
-      <Name>InventoryData</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
