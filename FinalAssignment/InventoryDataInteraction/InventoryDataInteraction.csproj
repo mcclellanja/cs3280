@@ -56,7 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\InventoryDataMapping\InventoryDataMapping\InventoryDataMapping.csproj">
+    <ProjectReference Include="..\InventoryDataMapping\InventoryDataMapping.csproj">
       <Project>{330acf0b-9109-4727-8b10-bff65701cbd6}</Project>
       <Name>InventoryDataMapping</Name>
     </ProjectReference>

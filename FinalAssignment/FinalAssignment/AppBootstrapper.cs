@@ -1,5 +1,3 @@
-
-
 namespace FinalAssignment
 {
 	using System;
@@ -8,7 +6,6 @@ namespace FinalAssignment
 	using FinalAssignment.ViewModels;
 	using InventoryDataInteraction;
     using InventoryData;
-	using System.Data.Common;
 
 	public class AppBootstrapper : BootstrapperBase
 	{
