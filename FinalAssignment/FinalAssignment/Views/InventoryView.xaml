@@ -4,8 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalAssignment.Views"
-        mc:Ignorable="d"
-        d:DesignHeight="400" d:DesignWidth="600">
+        mc:Ignorable="d">
     <Grid>
         <DataGrid Name="dgUsers" AutoGenerateColumns="False">
             <DataGrid.Columns>
