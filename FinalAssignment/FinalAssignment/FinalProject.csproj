@@ -67,7 +67,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="ViewModels\Styles\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
@@ -78,10 +78,10 @@
     <Compile Include="Views\InventoryView.xaml.cs">
       <DependentUpon>InventoryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainView.xaml.cs">
+    <Compile Include="ViewModels\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="ViewModels\Styles\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -96,7 +96,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainView.xaml">
+    <Page Include="ViewModels\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,7 +139,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DesignData\" />
-    <Folder Include="Styles\" />
     <Folder Include="TypeConverters\" />
   </ItemGroup>
   <ItemGroup>
