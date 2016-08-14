@@ -67,7 +67,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="ViewModels\Styles\App.xaml">
+    <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
@@ -78,10 +78,10 @@
     <Compile Include="Views\InventoryView.xaml.cs">
       <DependentUpon>InventoryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\MainView.xaml.cs">
+    <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\Styles\App.xaml.cs">
+    <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -89,8 +89,8 @@
     <Compile Include="Views\NewOrderView.xaml.cs">
       <DependentUpon>NewOrderView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Orders.xaml.cs">
-      <DependentUpon>Orders.xaml</DependentUpon>
+    <Compile Include="Views\OrdersView.xaml.cs">
+      <DependentUpon>OrdersView.xaml</DependentUpon>
     </Compile>
     <Page Include="ViewModels\Styles\Styles.xaml">
       <SubType>Designer</SubType>
@@ -100,7 +100,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewModels\MainView.xaml">
+    <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,7 +108,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Orders.xaml">
+    <Page Include="Views\OrdersView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -144,6 +144,7 @@
   <ItemGroup>
     <Folder Include="DesignData\" />
     <Folder Include="TypeConverters\" />
+    <Folder Include="ViewModels\Styles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InventoryDataInteraction\InventoryDataInteraction.csproj">
