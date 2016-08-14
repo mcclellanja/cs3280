@@ -92,6 +92,10 @@
     <Compile Include="Views\Orders.xaml.cs">
       <DependentUpon>Orders.xaml</DependentUpon>
     </Compile>
+    <Page Include="ViewModels\Styles\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\InventoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
