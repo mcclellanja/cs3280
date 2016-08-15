@@ -22,7 +22,7 @@
                 <DataGridTextColumn Header="Order Number" />
                 <DataGridTextColumn Header="Date Placed" />
                 <DataGridTextColumn Header="Purchaser" />
-                <DataGridTextColumn Header="Order Total" />
+                <DataGridTextColumn Header="Total Cost" />
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid Name="SelectedOrders" HorizontalAlignment="Center" 
@@ -32,7 +32,6 @@
                 <DataGridTextColumn Header="Item Name" />
                 <DataGridTextColumn Header="Item Cost" />
                 <DataGridTextColumn Header="Quantity Purchased" />
-                <DataGridTextColumn Header="Cost Paid Per Item" />
             </DataGrid.Columns>
         </DataGrid>
 
