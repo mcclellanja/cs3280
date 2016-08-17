@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace FinalAssignment.Views
 {
@@ -28,7 +29,9 @@ namespace FinalAssignment.Views
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string strConnection = "Server='ASHLEY-PC\\SQLEXPRESS';Database='Inventory';Trusted_Connection=true";
+            //string strConnection = "Server='ASHLEY-PC\\SQLEXPRESS';Database='Inventory';Trusted_Connection=true";
+
+            var strConnection = ConfigurationManager.ConnectionStrings["InventoryContext"].ConnectionString;
 
             SqlConnection con = new SqlConnection(strConnection);
 

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InventoryData;
+using InventoryDataInteraction;
 
 namespace FinalAssignment.ViewModels
 {
@@ -18,13 +19,13 @@ namespace FinalAssignment.ViewModels
         }
 
         private ObservableCollection<OrderItem> _OrderItems;
-        private ObservableCollection<Item> _Items;
-        private string _OrderNumber;
+        private BindableCollection<Item> _Items;
+        private int _OrderNumber;
         private DateTime _PurchaseDate;
         private string _Purchaser;
         private double _OrderTotal;
 
-        public string txt_OrderNumber
+        public int txt_OrderNumber
         {
             get { return this._OrderNumber; }
             set
@@ -35,7 +36,7 @@ namespace FinalAssignment.ViewModels
                 }
 
                 this._OrderNumber = value;
-                this.NotifyOfPropertyChange(() => this._OrderNumber);
+                this.NotifyOfPropertyChange(() => txt_OrderNumber);
             }
         }
 
@@ -50,7 +51,7 @@ namespace FinalAssignment.ViewModels
                 }
 
                 this._PurchaseDate = value;
-                this.NotifyOfPropertyChange(() => this._PurchaseDate);
+                this.NotifyOfPropertyChange(() => txt_PurchaseDate);
             }
         }
 
@@ -99,12 +100,22 @@ namespace FinalAssignment.ViewModels
             }
         }
 
-        public ObservableCollection<Item> Items
+        public BindableCollection<Item> Items
         {
             get { return _Items; }
+            set
+            {
+                if (this._Items == value)
+                {
+                    return;
+                }
+
+                this._Items = value;
+                this.NotifyOfPropertyChange(() => Items);
+            }
         }
 
-        public IInventoryData DataManager { get; set; }
+        public DatabaseInteraction DataManager = new DatabaseInteraction();
 
 
         //protected override async void OnActivate()
@@ -115,8 +126,30 @@ namespace FinalAssignment.ViewModels
 
         protected async void InitializeData()
         {
-            var Items = await DataManager.GetItemsAsync();
-            Items = new ObservableCollection<Item>(_Items);
+            var _Items = await DataManager.GetItemsAsync();
+            Items = new BindableCollection<Item>(_Items);
+
+            var _Orders = await DataManager.GetOrdersAsync();
+
+            dg_OrderItems = new ObservableCollection<OrderItem>();
+            OrderItem OI = new OrderItem();
+            OI.Item = Items[0];
+            OI.ItemCost = Items[0].Cost;
+            OI.ItemNumber = Items[0].ItemNumber;
+            OI.Quantity = 1;
+            dg_OrderItems.Add(OI);
+            //dg_OrderItems.Remove(OI);
+
+            txt_PurchaseDate = DateTime.Now;
+            if(_Orders.Count() == 0)
+            {
+                txt_OrderNumber = 0;
+            }
+            else
+            {
+                txt_OrderNumber = (_Orders.Last().OrderNumber + 1);
+            }
+
         }
 
         public async void SaveBackToDB()

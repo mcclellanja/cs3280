@@ -6,18 +6,13 @@
         xmlns:local="clr-namespace:FinalAssignment.Views"
         mc:Ignorable="d">
     <Grid>
-        <DataGrid Name="dgInventory" ItemsSource="{Binding}" AutoGenerateColumns="False">
+        <DataGrid Name="dgInventory" AutoGenerateColumns="False" CanUserAddRows="False" CanUserReorderColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Item Number" Binding="{Binding ItemNumber}" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Cost" Binding="{Binding Cost}" />
-                <DataGridTextColumn Header="Quantity on Hand" Binding="{Binding QuantityOnHand}" />
+                <DataGridTextColumn x:Name="ItemNumber" Header="Item Number" Binding="{Binding ItemNumber}" />
+                <DataGridTextColumn x:Name="Name" Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn x:Name="Cost" Header="Cost" Binding="{Binding Cost}"/>
+                <DataGridTextColumn x:Name="QuantityOnHand" Header="Quantity on Hand" Binding="{Binding QuantityOnHand}" />
             </DataGrid.Columns>
-            <DataGrid.RowDetailsTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Details}" Margin="10" />
-                </DataTemplate>
-            </DataGrid.RowDetailsTemplate>
         </DataGrid>
     </Grid>
 </UserControl>
