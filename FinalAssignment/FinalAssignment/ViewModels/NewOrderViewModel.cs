@@ -11,7 +11,14 @@ namespace FinalAssignment.ViewModels
 {
     class NewOrderViewModel : Screen
     {
+        protected override void OnActivate()
+        {
+            base.OnActivate();
+            InitializeData();
+        }
+
         private ObservableCollection<OrderItem> _OrderItems;
+        private ObservableCollection<Item> _Items;
         private string _OrderNumber;
         private DateTime _PurchaseDate;
         private string _Purchaser;
@@ -77,7 +84,7 @@ namespace FinalAssignment.ViewModels
             }
         }
 
-        public ObservableCollection<OrderItem> OrderItems
+        public ObservableCollection<OrderItem> dg_OrderItems
         {
             get { return this._OrderItems; }
             set
@@ -88,11 +95,17 @@ namespace FinalAssignment.ViewModels
                 }
 
                 this._OrderItems = value;
-                this.NotifyOfPropertyChange(() => this._OrderItems);
+                this.NotifyOfPropertyChange(() => dg_OrderItems);
             }
         }
 
+        public ObservableCollection<Item> Items
+        {
+            get { return _Items; }
+        }
+
         public IInventoryData DataManager { get; set; }
+
 
         //protected override async void OnActivate()
         //{
@@ -100,7 +113,13 @@ namespace FinalAssignment.ViewModels
         //    OrderItems = await DataManager.GetOrderItemsAsync();
         //}
 
-        public void SaveBackToDB()
+        protected async void InitializeData()
+        {
+            var Items = await DataManager.GetItemsAsync();
+            Items = new ObservableCollection<Item>(_Items);
+        }
+
+        public async void SaveBackToDB()
         {
             
         }

@@ -5,13 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FinalAssignment.Views"
              mc:Ignorable="d"
-             d:DesignHeight="400" d:DesignWidth="600">
+             d:DesignHeight="400" d:DesignWidth="580
+             ">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="PageLabel" Content="Create New Order" HorizontalAlignment="Center" FontSize="24" Margin="200,0"/>
+        <Label x:Name="PageLabel" Content="Create New Order" HorizontalAlignment="Center" FontSize="24"/>
         <Label x:Name="lbl_OrderNumber" Content="Order Number:" HorizontalAlignment="Left" Margin="173,8,0,0" Grid.Row="1" VerticalAlignment="Top" />
         <Label x:Name="lbl_PurchaseDate" Content="Purchase Date:" HorizontalAlignment="Left" Margin="175,39,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label x:Name="lbl_Purchaser" Content="Purchaser:" HorizontalAlignment="Left" Margin="199,70,0,0" Grid.Row="1" VerticalAlignment="Top"/>
@@ -24,19 +25,14 @@
         <TextBox x:Name="txt_Purchaser" HorizontalAlignment="Left" Height="23" Margin="268,72,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" FontSize="14"/>
         <TextBox x:Name="txt_Ordertotal" HorizontalAlignment="Left" Height="23" Margin="268,103,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" FontSize="14" IsEnabled="False"/>
 
-        <DataGrid x:Name="dg_OrderItems" HorizontalAlignment="Left" Margin="10,151,0,0" Grid.Row="1" VerticalAlignment="Top" Height="165" Width="580">
+        <DataGrid x:Name="dg_OrderItems" HorizontalAlignment="Left" Margin="10,151,0,0" Grid.Row="1" 
+                  VerticalAlignment="Top" Height="165" Width="560" AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="CellOrRowHeader">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Order Number" Width="100"/>
-                <DataGridTextColumn Header="Quantity" Width="100"/>
-                <DataGridTextColumn Header="Cost Per Item" Width="100"/>
-                <DataGridTextColumn Header="Item" Width="280"/>
+                <DataGridTextColumn Binding="{Binding Path=ItemNumber}" Header="Order Number" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Path=Quantity}" Header="Quantity" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Path=ItemCost}" Header="Cost Per Item" Width="100"/>
+                <DataGridComboBoxColumn ItemsSource="{Binding Items}" Header="Item" Width="280"/>
             </DataGrid.Columns>
-            <DataGrid.RowDetailsTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding OrderItems}" Margin="10" />
-                </DataTemplate>
-            </DataGrid.RowDetailsTemplate>
         </DataGrid>
-
     </Grid>
 </UserControl>
