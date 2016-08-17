@@ -12,26 +12,26 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
             <!--<ColumnDefinition Width="Auto" />-->
         </Grid.ColumnDefinitions>
 
         <DataGrid Name="ExisitingOrders" HorizontalAlignment="Center" 
-                  VerticalAlignment="Center" Grid.Column="0" Grid.RowSpan="1" Margin="0,0,10,224" Width="490">
+                  VerticalAlignment="Center" Grid.Column="0" Grid.RowSpan="1" Margin="0,10,111,214" Width="389">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Order Number" />
-                <DataGridTextColumn Header="Date Placed" />
-                <DataGridTextColumn Header="Purchaser" />
-                <DataGridTextColumn Header="Total Cost" />
+                <DataGridTextColumn Header="Order Number" Binding="{Binding OrderNumber}"/>
+                <DataGridTextColumn Header="Date Placed" Binding="{Binding DatePlaced}"/>
+                <DataGridTextColumn Header="Purchaser" Binding="{Binding Purchaser}"/>
+                <DataGridTextColumn Header="Total Cost" Binding="{Binding TotalCost}"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid Name="SelectedOrders" HorizontalAlignment="Center" 
-                      VerticalAlignment="Center" Margin="0,0,10,223" Grid.Row="1" Width="490" Height="27">
+                      VerticalAlignment="Center" Margin="0,10,111,213" Grid.Row="1" Width="389" Height="27">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Item Number" />
-                <DataGridTextColumn Header="Item Name" />
-                <DataGridTextColumn Header="Item Cost" />
-                <DataGridTextColumn Header="Quantity Purchased" />
+                <DataGridTextColumn Header="Item Number" Binding="{Binding ItemNumber}" />
+                <DataGridTextColumn Header="Item Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Item Cost" Binding="{Binding Cost}"/>
+                <DataGridTextColumn Header="Quantity Purchased" Binding="{Binding QuantityOnHand}"/>
             </DataGrid.Columns>
         </DataGrid>
 

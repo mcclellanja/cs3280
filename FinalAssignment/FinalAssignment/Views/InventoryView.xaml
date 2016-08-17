@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FinalAssignment.Views"
         mc:Ignorable="d">
     <Grid>
-        <DataGrid Name="dgUsers" AutoGenerateColumns="False">
+        <DataGrid Name="dgInventory" ItemsSource="{Binding}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Item Number" Binding="{Binding ItemNumber}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
