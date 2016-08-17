@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace FinalAssignment.Views
 {
@@ -22,6 +24,22 @@ namespace FinalAssignment.Views
         public InventoryView()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            string strConnection = "Server='ASHLEY-PC\\SQLEXPRESS';Database='Inventory';Trusted_Connection=true";
+
+            SqlConnection con = new SqlConnection(strConnection);
+
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.Connection = con;
+            sqlCmd.CommandType = CommandType.Text;
+            sqlCmd.CommandText = "select ItemNumber as Item Number, Name, Cost, QuantityOnHand as Quantity on Hand from Item";
+            SqlDataAdapter sqlDataAdap = new SqlDataAdapter(sqlCmd);
+            DataTable dt = new DataTable();
+            sqlDataAdap.Fill(dt);
+            dgInventory.ItemsSource = dt.DefaultView;
         }
     }
 }
