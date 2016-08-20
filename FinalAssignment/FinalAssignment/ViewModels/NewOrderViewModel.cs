@@ -18,12 +18,12 @@ namespace FinalAssignment.ViewModels
             InitializeData();
         }
 
-        private ObservableCollection<OrderItem> _OrderItems;
+        private BindableCollection<OrderItem> _OrderItems;
         private BindableCollection<Item> _Items;
         private int _OrderNumber;
         private DateTime _PurchaseDate;
-        private string _Purchaser;
-        private double _OrderTotal;
+        private BindableCollection<User> _Purchaser;
+        private decimal _OrderTotal;
 
         public int txt_OrderNumber
         {
@@ -55,7 +55,7 @@ namespace FinalAssignment.ViewModels
             }
         }
 
-        public string txt_Purchaser
+        public BindableCollection<User> txt_Purchaser
         {
             get { return this._Purchaser; }
             set
@@ -70,7 +70,7 @@ namespace FinalAssignment.ViewModels
             }
         }
 
-        public double txt_OrderTotal
+        public decimal txt_OrderTotal
         {
             get { return this._OrderTotal; }
             set
@@ -85,7 +85,7 @@ namespace FinalAssignment.ViewModels
             }
         }
 
-        public ObservableCollection<OrderItem> dg_OrderItems
+        public BindableCollection<OrderItem> dg_OrderItems
         {
             get { return this._OrderItems; }
             set
@@ -129,9 +129,11 @@ namespace FinalAssignment.ViewModels
             var _Items = await DataManager.GetItemsAsync();
             Items = new BindableCollection<Item>(_Items);
 
+            var _users = await DataManager.GetUsersAsync();
+
             var _Orders = await DataManager.GetOrdersAsync();
 
-            dg_OrderItems = new ObservableCollection<OrderItem>();
+            dg_OrderItems = new BindableCollection<OrderItem>();
             OrderItem OI = new OrderItem();
             OI.Item = Items[0];
             OI.ItemCost = Items[0].Cost;
@@ -152,10 +154,28 @@ namespace FinalAssignment.ViewModels
 
         }
 
-        public async void SaveBackToDB()
+        public async void SaveToDB()
         {
-            
-        }
+            User purchaser = new User();
+            purchaser.Name = txt_Purchaser;
 
+            foreach (var item in dg_OrderItems)
+            {
+                item.OrderNumber = txt_OrderNumber;
+                txt_OrderTotal += item.ItemCost;
+            }
+
+            Order toSave = new Order();
+            toSave.DatePlaced = txt_PurchaseDate;
+            toSave.OrderNumber = txt_OrderNumber;
+            toSave.Purchaser = purchaser;
+            toSave.TotalCost = txt_OrderTotal;
+            toSave.OrderItems = dg_OrderItems;
+
+            await DataManager.SaveOrderAsync(toSave);
+
+            dg_OrderItems.Clear();
+
+        }
     }
 }

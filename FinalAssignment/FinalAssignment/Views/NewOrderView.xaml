@@ -22,8 +22,8 @@
         <!-- Text Boxes -->
         <TextBox x:Name="txt_OrderNumber" Text="{Binding txt_OrderNumber}" HorizontalAlignment="Left" Height="23" Margin="268,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" FontSize="14" IsReadOnly="True"/>
         <TextBox x:Name="txt_PurchaseDate" Text="{Binding txt_PurchaseDate}" HorizontalAlignment="Left" Height="23" Margin="268,41,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" FontSize="14"/>
-        <TextBox x:Name="txt_Purchaser" HorizontalAlignment="Left" Height="23" Margin="268,72,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" FontSize="14"/>
-        <TextBox x:Name="txt_Ordertotal" HorizontalAlignment="Left" Height="23" Margin="268,103,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" FontSize="14" IsReadOnly="True"/>
+        <ComboBox x:Name="txt_Purchaser" Text="{Binding txt_Purchaser}" HorizontalAlignment="Left" Height="23" Margin="268,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="221" FontSize="14"/>
+        <TextBox x:Name="txt_Ordertotal" Text="{Binding txt_OrderTotal}" HorizontalAlignment="Left" Height="23" Margin="268,103,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" FontSize="14" IsReadOnly="True"/>
 
         <DataGrid x:Name="dg_OrderItems" ItemsSource="{Binding dg_OrderItems}" HorizontalAlignment="Left" Margin="10,151,0,0" Grid.Row="1" 
                   VerticalAlignment="Top" Height="165" Width="560" AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="CellOrRowHeader" CanUserAddRows="True" CanUserResizeColumns="False" CanUserReorderColumns="False">
@@ -31,9 +31,10 @@
                 <DataGridTextColumn x:Name="OrderNumber" IsReadOnly="True" Binding="{Binding txt_OrderNumber}" Header="Order Number" Width="100"/>
                 <DataGridTextColumn x:Name="Quantity" Binding="{Binding Quantity}" Header="Quantity" Width="100"/>
                 <DataGridTextColumn x:Name="ItemCost" Binding="{Binding ItemCost}" Header="Cost Per Item" Width="100"/>
-                <!--<DataGridTextColumn x:Name="Item" Binding="{Binding Item.Name}" Header="Item" Width="255"/>-->
-                <DataGridComboBoxColumn x:Name="Item" DisplayMemberPath="Name" Header="Item" ItemsSource="{Binding Path=Items, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" Width="255" />
+                <DataGridTextColumn x:Name="Item_Name" Binding="{Binding Item.Name}" Header="Item" Width="255"/>
+                <!--<DataGridComboBoxColumn x:Name="Item" DisplayMemberPath="Name" Header="Item" ItemsSource="{Binding Path=Items, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" Width="255" />-->
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="SaveToDB" Content="Save" HorizontalAlignment="Left" Margin="10,321,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </UserControl>

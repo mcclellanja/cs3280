@@ -6,7 +6,7 @@
         xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
         xmlns:local="clr-namespace:FinalAssignment.Views"
         mc:Ignorable="d"
-        Title="MainView" Height="420" Width="600">
+        Title="MainView" Height="450" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
