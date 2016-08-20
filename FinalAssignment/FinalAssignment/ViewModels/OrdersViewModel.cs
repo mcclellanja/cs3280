@@ -24,7 +24,7 @@ namespace FinalAssignment.ViewModels
         /// Observable Collections for my data grids Existing Orders
         /// And Selected Orderd
         /// </summary>
-        private ObservableCollection<Item> _ExistingOrders;\
+        private ObservableCollection<Item> _ExistingOrders;
 
         public ObservableCollection<Item> dgExistingOrders
         {
